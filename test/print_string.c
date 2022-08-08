@@ -5,11 +5,16 @@
 
 int print_string(char *s)
 {
-	int i;
-
-	for (i == 0; s[i] != '\0'; i++)
+	int j;
+	char c;
+	
+	if (s == NULL)
+		return (0);
+	
+	for (j = 0; s[j] != '\0'; j++)
 	{
-		_putchar(s[i]);
+		_putchar(s[j]);
 	}
-	return(i - 1);
+	
+	return(j);
 }

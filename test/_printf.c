@@ -9,9 +9,12 @@
 
 int _printf(const char *format, ...)
 {
+	char *p;
 	int len_format, i;
 	va_list ap;
-	va_start (ap, format);
+	va_start(ap, format);
+	len_format = 0;
+
 
 	for (i = 0; format[i] != '\0';i++)
 	{
@@ -20,30 +23,29 @@ int _printf(const char *format, ...)
 			if (format[i + 1] == '%')
 			{
 				_putchar('%');
+				i++;
 			}
-		}
-		else if (format[i] == '%')
-		{
-			if (format[i + 1] == 'c')
+			else if (format[i + 1] == 'c')
 			{
 				_putchar(va_arg(ap, int));
 				i++;
 			}
-		}
-		else if (format[i] == '%')
-		{
-			(format[i + 1] == 's');
+			else if (format[i + 1] == 's');
 			{
-				print_string(va_arg(ap, char *));
+				/*p = malloc(strlen(va_arg(ap, char*)));*/
+				p = va_arg(ap, char*);
+				len_format += print_string(p);
+				i++;
 			}
 		}
 		else
 		{
 			_putchar(format[i]);
 		}
+
 		len_format++;
 	}
 
-	va_end(ap);
+	va_end (ap);
 	return (len_format);
 }
