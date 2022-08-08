@@ -6,7 +6,7 @@
 int print_string(char *s)
 {
 	int i;
-	hello
+
 	for (i == 0; s[i] != '\0'; i++)
 	{
 		_putchar(s[i]);
